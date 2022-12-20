@@ -6,8 +6,10 @@
 <p>絞り込み検索</p>
 <div>
   <p>ジャンル</p>
-    <input type="radio" value="コンクール">コンクール
-    <input type="radio" value="ポップス">ポップス
+    <% @categories.each do |category| %>
+      <input type="radio" value= categoy>
+      <%= category.name %>
+    <% end %>
   <p>グレード</p>
     <input type="radio" value="Gr.2 ~ 2.5">Gr.2 ~ 2.5
     <input type="radio" value="Gr3 ~ 3.5">Gr3 ~ 3.5
