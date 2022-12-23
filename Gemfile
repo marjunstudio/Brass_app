@@ -51,3 +51,4 @@ gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 gem 'sorcery'
 
 gem 'seed-fu'
+gem 'google-api-client', '~> 0.53.0'
