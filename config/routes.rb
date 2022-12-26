@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'top_pages#top'
+  root 'top_pages#index'
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
