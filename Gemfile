@@ -53,3 +53,4 @@ gem 'sorcery'
 
 gem 'seed-fu'
 gem 'google-api-client', '~> 0.53.0'
+gem 'pry-rails'
