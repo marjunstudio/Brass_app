@@ -2,6 +2,6 @@
 <p>Find me in app/views/search_result/index.html.erb</p>
 <% @musics.each do |music| %>
   <div>
-    <%= music.title %>
+    <%= link_to music.title, youtube_search_index_path(music.title) %>
   </div>
 <% end %>

@@ -1,13 +1,12 @@
 class YoutubeSearchController < ApplicationController
   GOOGLE_API_KEY = Rails.application.credentials.google[:api_key]
+  require 'google/apis/youtube_v3'
   
   def index
-    @youtube_data = find_videos(params[:keyword])
+    @youtube_data = find_videos(params[:format])
   end
 
-  def find_videos(keyword, after: 1.months.ago, before: Time.now)
-    require 'google/apis/youtube_v3'
-
+  def find_videos(keyword)
     service = Google::Apis::YoutubeV3::YouTubeService.new
     service.key = GOOGLE_API_KEY
 
@@ -16,10 +15,8 @@ class YoutubeSearchController < ApplicationController
       q: keyword,
       type: 'video',
       max_results: 10,
-      order: :date,
+      order: :viewCount,
       page_token: next_page_token,
-      published_after: after.iso8601,
-      published_before: before.iso8601
     }
     service.list_searches(:snippet, opt)
   end
