@@ -1,0 +1,14 @@
+<div class="bg-red py-6 sm:py-8 lg:py-12">
+  <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+    <div class="flex flex-col">
+      <div>
+        <% @musics.each do |music| %>
+          <div class="flex flex-col rounded-md border bg-blue-200 p-3">
+            <%= link_to music.title, youtube_search_index_path(music.title), class:"text-lg" %>
+            <p class="text-sm">ジャンル</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
