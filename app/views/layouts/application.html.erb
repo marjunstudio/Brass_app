@@ -13,17 +13,12 @@
   </head>
 
   <body>
-  <div id="nav">
     <% if logged_in? %>
       <%= render 'shared/login_header' %>
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
-  </div>
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-  </div>
-  <%= yield %>
+    <%= render 'shared/flash_message' %>
+    <%= yield %>
   </body>
 </html>
