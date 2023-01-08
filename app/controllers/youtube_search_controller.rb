@@ -10,34 +10,33 @@ class YoutubeSearchController < ApplicationController
     service.key = Rails.application.credentials.google[:api_key]
     @youtube_data = []
 
-    #動画情報を格納
-    next_page_token = nil
-    video_info = service.list_searches(
+    # 検索結果を取得
+    search_results = service.list_searches(
       :snippet,
+      type: "video",
       q: keyword,
-      type: 'video',
-      max_results: 10,
+      max_results: 4,
       order: :viewCount,
-      page_token: next_page_token
+      video_embeddable: true,
+      fields: 'items(id(videoId), snippet(title, description, thumbnails(medium(url))))'
     )
 
-    video_info.items.each_with_index do |item, index|
-      video_id = video_info.items[index].id.video_id
+    search_results.items.each_with_index do |item, index|
+      video_id = search_results.items[index].id.video_id
+      #動画の再生回数を取得する
       video_results = service.list_videos(
         :statistics,
         id: video_id,
-        max_results: 1
+        max_results: 1,
+        fields: 'items(statistics(view_count))'
       )
-      #動画ID,タイトル,概要, 再生回数を配列で取得
+
       view_count = video_results.items[0].statistics.view_count
       snippet = item.snippet
-
-      @youtube_data << { 
-        video_id: video_id, 
-        title: snippet.title, 
-        description: snippet.description, 
-        published_at: snippet.published_at,
-        view_count: view_count }
+      thumbnail = snippet.thumbnails.medium.url
+      # { video_id・動画タイトル・概要・サムネ・再生回数 } を返す
+      @youtube_data << { video_id: video_id, title: snippet.title, description: snippet.description, thumbnail: thumbnail, view_count: view_count }
     end
+    return @youtube_data
   end
 end
