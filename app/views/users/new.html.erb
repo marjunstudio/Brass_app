@@ -2,7 +2,7 @@
 <div class="bg-white py-6 sm:py-8 lg:py-12">
   <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
     <div>
-      <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">新規ユーザー登録</h2>
+      <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6"><%= t'.title' %></h2>
     </div>
     <%= form_with model: @user, class: "max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto", local: true do |f| %>
       <div class="sm:col-span-2">
@@ -29,8 +29,8 @@
       </div>
 
       <div class="sm:col-span-2 flex justify-between items-center">
-        <button class="inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">登録</button>
-        <%= link_to('ログインへ', login_path, class: 'inline-block focus-visible:ring ring-indigo-300 text-gray-500 hover:text-indigo-500 active:text-indigo-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-4 py-3') %>
+        <%= f.submit (t'defaults.register'), class:"inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3" %>
+        <%= link_to (t'.to_login_page'), login_path, class: 'inline-block focus-visible:ring ring-indigo-300 text-gray-500 hover:text-indigo-500 active:text-indigo-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-4 py-3' %>
       </div>
     <% end %>
   </div>

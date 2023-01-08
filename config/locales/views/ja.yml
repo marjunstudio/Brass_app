@@ -1,0 +1,18 @@
+---
+ja:
+  defaults:
+    signup: '新規登録'
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    user_index: 'ユーザー詳細(未実装)'
+    search: '検索'
+  users:
+    new:
+      title: '新規ユーザー登録'
+      to_login_page: 'ログインページへ'
+  
+  user_sessions:
+    new:
+      title: 'ログイン'
+      to_new_user_page: 'ユーザー登録へ'
