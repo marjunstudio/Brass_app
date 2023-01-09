@@ -30,7 +30,7 @@ WORKDIR /$APP_NAME
 # && apt-get install -y build-essential nodejs yarn
 
 # node14.19.1をインストール
-RUN curl -sL httpsno://deb.nodesource.com/setup_14.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get install -y nodejs npm && npm install n -g && n 14.19.1
 
 RUN gem install bundler:$BUNDLER_VERSION
