@@ -23,11 +23,15 @@ RUN mkdir /$APP_NAME
 WORKDIR /$APP_NAME
 
 # 別途インストールが必要なものがある場合は追加してください
-RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
-&& wget --quiet -O - /tmp/pubkey.gpg https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-&& echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-&& apt-get update -qq \
-&& apt-get install -y build-essential nodejs yarn
+# RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
+# && wget --quiet -O - /tmp/pubkey.gpg https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+# && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+# && apt-get update -qq \
+# && apt-get install -y build-essential nodejs yarn
+
+# node14.19.1をインストール
+RUN curl -sL httpsno://deb.nodesource.com/setup_14.x | bash - && \
+    apt-get install -y nodejs npm && npm install n -g && n 14.19.1
 
 RUN gem install bundler:$BUNDLER_VERSION
 
