@@ -2,9 +2,9 @@
   <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
     <div class="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
       <% @youtube_data.each do |item| %>
-        <div class="flex flex-col group h-60 flex bg-gray-100 rounded-lg overflow-hidden shadow-lg relative">
+        <div class="flex flex-col group h-64 flex bg-gray-100 rounded-lg overflow-hidden shadow-lg relative">
           <%# 埋め込み動画自体のタイトルを削除後表示する %>
-          <iframe class="w-full" height="280" src="https://www.youtube.com/embed/<%= item[:video_id] %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="w-full" height="230" src="https://www.youtube.com/embed/<%= item[:video_id] %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <div><%= item[:view_count].to_s(:delimited) %>回再生</div>
         </div>
       <% end %>

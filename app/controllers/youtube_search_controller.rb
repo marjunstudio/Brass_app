@@ -15,7 +15,7 @@ class YoutubeSearchController < ApplicationController
     search_results = service.list_searches(
       :snippet,
       type: "video",
-      q: keyword,
+      q: '吹奏楽' + keyword,
       max_results: 4,
       order: :viewCount,
       video_embeddable: true,
