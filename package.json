@@ -17,7 +17,7 @@
     "webpack-dev-server": "^3"
   },
   "scripts": {
-    "build:css": "scss ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
+    "build:css": "postcss ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
   }
 }
 
