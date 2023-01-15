@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_many :musics, through: :likes_music
-  has_many :likes_musics, dependent: :destroy
+  has_many :like_musics, through: :likes, source: :music
+  has_many :likes, dependent: :destroy
+  has_many :musics, dependent: :destroy
 
   validates :name, length: {maximum: 30}, if: -> {new_record? || changes[:crypted_password] }
   validates :password, length: {minimum: 3}, if: -> { new_record? || changes[:crypted_password] }
@@ -12,10 +13,10 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
 
   def unlikes_music(music)
-    likes_musics.destroy(music)
+    likes.destroy(music)
   end
 
   def liked_by?(music)
-    likes_musics.exists?(music)
+    likes.exists?(music)
   end
 end
