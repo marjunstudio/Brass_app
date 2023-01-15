@@ -13,12 +13,12 @@
           <div class="flex items-center">
             <% if logged_in? %>
               <% if current_user.liked_by?(music: music.id) %>
-                <%= render 'unlike_bottun', music: music %> 
+                <%= render 'shared/unlike_bottun', music: music %> 
               <% else %>
-                <%= render 'like_bottun', music: music  %>
+                <%= render 'shared/like_bottun', music: music  %>
               <% end %>
             <% else %>
-              <%= render 'like_bottun', music: music  %>
+              <%= render 'shared/like_bottun', music: music  %>
             <% end %>
           </div>
         </div>
