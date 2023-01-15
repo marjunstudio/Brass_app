@@ -5,14 +5,30 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
+    like: 'お気に入り楽曲'
     user_index: 'ユーザー詳細(未実装)'
     search: '検索'
+    warning: 'ログインしてください'
+
   users:
     new:
       title: '新規ユーザー登録'
       to_login_page: 'ログインページへ'
+    create:
+      success: '新規ユーザーを登録しました'
+      warning: '新規ユーザーの作成に失敗しました'
   
   user_sessions:
     new:
       title: 'ログイン'
       to_new_user_page: 'ユーザー登録へ'
+    create:
+      success: 'ログインしました'
+      warning: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
+  likes:
+    index:
+      title: 'お気に入り楽曲'
+    destroy:
+      success: 'お気に入りを解除しました'
