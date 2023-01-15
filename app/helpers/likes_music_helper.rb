@@ -1,0 +1,2 @@
+module LikesMusicHelper
+end
