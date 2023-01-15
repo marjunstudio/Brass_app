@@ -81,7 +81,8 @@ test:
 #
 production:
   <<: *default
+
+
+  adapter: postgresql
   database: Brass_app_production
-  username: Brass_app
-  password: <%= ENV['BRASS_APP_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  encoding: utf8
