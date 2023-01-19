@@ -1,28 +1,30 @@
-<div class="text-3xl flex flex justify-center">
-  <p>検索結果<%= @musics.count %>件</p>
-</div>
-<div class="max-w-screen-2xl sm:py-4 md:px-6 mx-auto lg:py-6">
-  <div class="md:grid grid-cols-2">
-    <% @musics.each do |music| %>
-      <div class="rounded-md border bg-blue-200 border-5 border-gray-600 hover:text-slate-500 p-3 m-0.5">
-        <div class="flex flex justify-between">
-          <div>
-            <%= link_to music.title, youtube_search_index_path(music.title), class:"text-lg" %>
-            <p class="text-sm">ジャンル</p>
-          </div>
-          <div class="flex items-center">
-            <% if logged_in? %>
-              <% if current_user.liked_by?(music: music.id) %>
-                <%= render 'shared/unlike_bottun', music: music %> 
+
+  <div class="text-3xl flex flex justify-center">
+    <p>検索結果<%= @musics.count %>件</p>
+  </div>
+  <div class="max-w-screen-2xl sm:py-4 md:px-6 mx-auto lg:py-6">
+    <div class="md:grid grid-cols-2">
+      <% @musics.each do |music| %>
+        <div class="rounded-md border bg-blue-200 border-5 border-gray-600 hover:text-slate-500 p-3 m-0.5">
+          <div class="flex flex justify-between">
+            <div>
+              <%= link_to music.title, youtube_search_index_path(music.title), class:"text-lg" %>
+              <p class="text-sm">ジャンル</p>
+            </div>
+            <div class="flex items-center">
+              <% if logged_in? %>
+                <% if current_user.liked_by?(music: music.id) %>
+                  <%= render 'shared/unlike_bottun', music: music %> 
+                <% else %>
+                  <%= render 'shared/like_bottun', music: music  %>
+                <% end %>
               <% else %>
                 <%= render 'shared/like_bottun', music: music  %>
               <% end %>
-            <% else %>
-              <%= render 'shared/like_bottun', music: music  %>
-            <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

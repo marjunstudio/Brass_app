@@ -15,12 +15,14 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= render 'shared/login_header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
-    <%= render 'shared/flash_message' %>
-    <%= yield %>
+    <div class='h-3/4 bg-center bg-cover bg-[url("/images/top_image.jpeg")]'>
+      <% if logged_in? %>
+        <%= render 'shared/login_header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
+      <%= render 'shared/flash_message' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
