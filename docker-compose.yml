@@ -1,0 +1,23 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+    environment:
+      - BRASS_APP_DATABASE_PASSWORD=0InW61bDDtcqEgdTxjVbVWMs
+      - DATABASE_URL=postgresql://clcn6p8nt0012bxqu33htaeh5:0InW61bDDtcqEgdTxjVbVWMs@clcn6p8nw459093bxquwk782qdf:5432/clcn6p8nv0014bxquelh15x15
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+volumes:
+  postgresql-data:
+    driver: local

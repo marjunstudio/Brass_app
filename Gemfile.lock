@@ -80,6 +80,10 @@ GEM
     cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
     declarative (0.0.20)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.11.0)
     execjs (2.8.1)
     faraday (2.7.1)
@@ -295,6 +299,7 @@ DEPENDENCIES
   bootstrap (~> 5.2, >= 5.2.3)
   byebug
   cssbundling-rails
+  dotenv-rails
   google-api-client (~> 0.53.0)
   jbuilder (~> 2.7)
   jquery-rails
