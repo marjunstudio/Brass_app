@@ -16,3 +16,12 @@ csv.each do |music|
     s.category_id = music[2]
   end
 end
+
+csv = CSV.read('db/fixtures/csv/music_category.csv', headers: true)
+csv.each do |id|
+  MusicCategory.seed do |s|
+    s.id = id[0]
+    s.music_id = id[1]
+    s.category_id = id[2]
+  end
+end
