@@ -9,7 +9,7 @@
           <div class="flex flex justify-between">
             <div>
               <%= link_to music.title, youtube_search_index_path(music.title), class:"text-lg font-medium" %>
-              <p class="text-sm">ジャンル</p>
+              <p class="text-sm">#<%= @category %></p>
             </div>
             <div class="flex items-center">
               <% if logged_in? %>
