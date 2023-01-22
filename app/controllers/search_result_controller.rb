@@ -3,6 +3,10 @@ class SearchResultController < ApplicationController
   def index
     @q = Music.ransack(params[:q])
     @musics = @q.result
-    @category = Category.where(category_id: @q)
+    @musics.each do |music|
+      category = music.music_categories.select(:category_id)
+      @category = Category.find_by(id: category).name
+    end
+    
   end
 end
