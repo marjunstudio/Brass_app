@@ -16,7 +16,7 @@ class YoutubeSearchController < ApplicationController
       :snippet,
       type: "video",
       q: '吹奏楽' + keyword,
-      max_results: 4,
+      max_results: 15,
       order: :viewCount,
       video_embeddable: true,
       fields: 'items(id(videoId), snippet(title, description, thumbnails(medium(url))))'
