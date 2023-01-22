@@ -2,21 +2,35 @@
 ja:
   defaults:
     signup: '新規登録'
+    update: "更新"
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
     like: 'お気に入り楽曲'
-    user_index: 'ユーザー詳細(未実装)'
+    user_index: 'ユーザー詳細'
     search: '検索'
     warning: 'ログインしてください'
 
   users:
+    index:
+      title: "ユーザープロフィール"
+    edit:
+      title: "ユーザー情報編集"
     new:
       title: '新規ユーザー登録'
       to_login_page: 'ログインページへ'
     create:
       success: '新規ユーザーを登録しました'
       warning: '新規ユーザーの作成に失敗しました'
+  
+  profiles:
+    show:
+      title: 'ユーザープロフィール'
+    edit:
+      title: 'ユーザー情報編集'
+    update:
+      success: 'ユーザー情報を更新しました'
+      warning: 'ユーザー情報の更新に失敗しました'
   
   user_sessions:
     new:
