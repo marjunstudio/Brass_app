@@ -1,4 +1,11 @@
 version: '3'
+webpacker:
+  build: .
+  command: bundle exec rails webpacker:compile
+  volumes:
+    - .:/favorite_spot
+  ports:
+    - "8000:8000"
 services:
   db:
     image: postgres
