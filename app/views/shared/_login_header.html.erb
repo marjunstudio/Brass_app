@@ -9,7 +9,7 @@
       <%= link_to (t'defaults.logout'), logout_path, method: :delete, class: 'inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3' %>
     </div>
     <%# ハンバーガーメニュー %>
-    <div x-data="{ isOpen: true }" class="md:hidden relative inline-block ">
+    <div x-data="{ isOpen: false }" class="md:hidden relative inline-block ">
     <!-- Dropdown toggle button -->
     <button @click="isOpen = !isOpen" class="relative z-10 block p-2 text-gray-700 bg-white border border-transparent rounded-md dark:text-white focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:bg-gray-800 focus:outline-none">
         <i class="fa-solid fa-bars"></i>
