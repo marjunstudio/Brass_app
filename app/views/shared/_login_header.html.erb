@@ -5,7 +5,7 @@
     </div>
     <div class="hidden md:inline-block flex">
       <%= link_to (t'defaults.like'), likes_path, class: 'inline-block focus-visible:ring ring-indigo-300 text-gray-500 hover:text-indigo-500 active:text-indigo-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-4 py-3' %>
-      <%= link_to (t'defaults.user_index'), users_path, class: 'inline-block focus-visible:ring ring-indigo-300 text-gray-500 hover:text-indigo-500 active:text-indigo-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-4 py-3' %>
+      <%= link_to (t'defaults.user_index'), profile_path, class: 'inline-block focus-visible:ring ring-indigo-300 text-gray-500 hover:text-indigo-500 active:text-indigo-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-4 py-3' %>
       <%= link_to (t'defaults.logout'), logout_path, method: :delete, class: 'inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3' %>
     </div>
     <%# ハンバーガーメニュー %>
@@ -26,7 +26,7 @@
         class="absolute right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800"
     >
         <%= link_to (t'defaults.like'), likes_path, class: 'block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white' %>
-        <%= link_to (t'defaults.user_index'), users_path, class: 'block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white' %>
+        <%= link_to (t'defaults.user_index'), profile_path, class: 'block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white' %>
         <hr class="border-gray-200 dark:border-gray-700 ">
         <%= link_to (t'defaults.logout'), logout_path, method: :delete, class: 'block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white' %>
     </div>

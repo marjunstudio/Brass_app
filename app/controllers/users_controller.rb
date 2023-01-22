@@ -1,15 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[index edit update]
-  skip_before_action :require_login, only: [:index, :new, :create]
-
-  def index
-  end
+  skip_before_action :require_login, only: [:new, :create]
 
   def new
     @user = User.new
-  end
-
-  def edit
   end
 
   def create
@@ -19,14 +13,6 @@ class UsersController < ApplicationController
     else
       flash.now[:warning] = t('.warning')
       render :new
-    end
-  end
-
-  def update
-    if @user.update(user_params)
-      redirect_to users_path
-    else
-      render :edit
     end
   end
 
