@@ -1,25 +1,23 @@
 {
-  "name": "brass-app",
-  "private": true,
-  "dependencies": {
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.4.3",
-    "@tailwindcss/postcss7-compat": "^2.2.17",
-    "autoprefixer": "^9.8.8",
-    "jquery": "^3.6.3",
-    "postcss": "^7.0.39",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
-    "turbolinks": "^5.2.0",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
-  },
-  "version": "0.1.0",
+  "name": "brass_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/marjunstudio/Brass_app.git",
+  "author": "marjunstudio <uebujie@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4",
     "webpack-dev-server": "^3"
   },
   "scripts": {
-    "build:css": "css ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
+    "build:css": "npx tailwindcss -i ./src/application.tailwind.css -o ./assets/build/application.css --watch",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "@rails/webpacker": "5.4.3",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
   }
 }
