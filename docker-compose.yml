@@ -1,11 +1,4 @@
 version: '3'
-webpacker:
-  build: .
-  command: bundle exec rails webpacker:compile
-  volumes:
-    - .:/favorite_spot
-  ports:
-    - "8000:8000"
 services:
   db:
     image: postgres
@@ -16,6 +9,13 @@ services:
     environment:
       - BRASS_APP_DATABASE_PASSWORD=0InW61bDDtcqEgdTxjVbVWMs
       - DATABASE_URL=postgresql://clcn6p8nt0012bxqu33htaeh5:0InW61bDDtcqEgdTxjVbVWMs@clcn6p8nw459093bxquwk782qdf:5432/clcn6p8nv0014bxquelh15x15
+  webpacker:
+    build: .
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/favorite_spot
+    ports:
+      - "8000:8000"
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
