@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :logged_in?, only: %i[create destroy]
+  before_action :require_login, only: %i[index create destroy]
 
   def index
     like_musics = current_user.likes.includes(:music)
