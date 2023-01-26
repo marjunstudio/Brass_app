@@ -9,7 +9,6 @@
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   
@@ -19,8 +18,11 @@
   <% else %>
     <%= render 'shared/before_login_header' %>
   <% end %>
+
   <%= render 'shared/flash_message' %>
+
   <%= yield %>
+
   <%= render 'shared/footer' %>
   </body>
 </html>
