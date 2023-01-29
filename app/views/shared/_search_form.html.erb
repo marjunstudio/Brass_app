@@ -1,27 +1,58 @@
 <div class="flex justify-center">
-  <div class="w-4/5 p-3 mb-5 bg-blue-200 rounded-lg border-4 border-gray-600">
+  <div class="bg-cyan w-4/5 p-3 mb-5 rounded-lg border-4 border-gray-600">
     <%# フリーワード検索エリア %>
     <div class="max-w-2xl mx-auto">
-        <p class="font-bold mr-5">フリーワード検索</p>
+      <p class="font-bold mr-5">フリーワード検索</p>
       <div class="relative">
         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </div>
         <input type="search" id="default-search" class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="キーワード" required>
-        <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><%= t'defaults.search' %></button>
+        <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-blue-800"><%= t'defaults.search' %></button>
       </div>
     </div>
-    <%# カテゴリ検索エリア %>
-    <div class="flex flex-left mt-4 max-w-2xl mx-auto">
-      <%= search_form_for @q, url: search_result_index_path do |f| %>
-        <div class="form-group">
-          <%= f.label :music_categories_category_id_eq, 'カテゴリから探す' ,class:"font-bold mr-5"%>
-          <div class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <%= f.collection_select :music_categories_category_id_eq, @categories.all, :id, :name, include_blank: "選択して下さい" %>
-            <%= f.submit (t'defaults.search'), class:"text-white right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
-          </div>    
+
+    <div class="sm:flex flex-left max-w-2xl mx-auto ">
+      <%# モーダル検索（カテゴリ） %>
+        <div class="flex my-4" x-data="{ open: false }">
+          <button class="sm:max-w-2xl mx-auto bg-green-500 bg-opacity-75 text-white px-4 py-2 rounded no-outline focus:shadow-outline select-none" @click="open = true">カテゴリから探す</button>
+          <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center" style="background-color: rgba(0,0,0,.5);" x-show="open">
+            <div class="text-left bg-white h-auto p-4 md:max-w-xl md:p-6 lg:p-8 shadow-xl rounded mx-2 md:mx-0" @click.away="open = false">
+              <h2 class="text-2xl my-3 text-center">カテゴリから探す</h2>
+              <%= search_form_for @q, url: search_result_index_path do |f| %>
+                <div class="form-group">
+                  <div class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <%= f.collection_select :music_categories_category_id_eq, @categories.all, :id, :name, include_blank: "選択して下さい" %>
+                    <%= f.submit (t'defaults.search'), class:"text-white right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+                  </div>    
+                </div>
+              <% end %>
+              <div class="flex justify-center mt-8">
+                <button class="bg-gray-700 text-white px-4 py-2 rounded no-outline focus:shadow-outline select-none" @click="open = false">閉じる</button>
+              </div>
+            </div>
+          </div>
+        </div>  
+      <%# モーダル検索（作曲者） %>
+        <div class="flex m-4" x-data="{ open: false }">
+          <button class="w-max mx-auto bg-green-500 bg-opacity-75 text-white px-4 py-2 rounded no-outline focus:shadow-outline select-none" @click="open = true">作曲者から探す</button>
+          <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center" style="background-color: rgba(0,0,0,.5);" x-show="open">
+            <div class="text-left bg-white h-auto p-4 md:max-w-xl md:p-6 lg:p-8 shadow-xl rounded mx-2 md:mx-0" @click.away="open = false">
+              <h2 class="text-2xl my-3 text-center">作曲者から探す</h2>
+              <%= search_form_for @q, url: search_result_index_path do |f| %>
+                <div class="form-group">
+                  <div class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <%= f.collection_select :music_categories_category_id_eq, @categories.all, :id, :name, include_blank: "選択して下さい" %>
+                    <%= f.submit (t'defaults.search'), class:"text-white right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+                  </div>    
+                </div>
+              <% end %>
+              <div class="flex justify-center mt-8">
+                <button class="bg-gray-700 text-white px-4 py-2 rounded no-outline focus:shadow-outline select-none" @click="open = false">閉じる</button>
+              </div>
+            </div>
+          </div>
         </div>
-      <% end %>
     </div>
   </div>
 </div>
