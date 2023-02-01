@@ -13,7 +13,11 @@ Rails.application.routes.draw do
     end
   end
   resources :youtube_search, only: %i[top index]
-  resources :search_result, only: %i[index]
+  resources :search_result, only: %i[index] do
+    collection do
+      get 'category'
+      get 'composer'
+    end
+  end
   resources :likes, only: %i[index create destroy]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
