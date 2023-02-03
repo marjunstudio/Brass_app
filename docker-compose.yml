@@ -7,8 +7,8 @@ services:
     volumes:
       - postgresql-data:/var/lib/postgresql/data
     environment:
-      - BRASS_APP_DATABASE_PASSWORD=0InW61bDDtcqEgdTxjVbVWMs
-      - DATABASE_URL=postgresql://clcn6p8nt0012bxqu33htaeh5:0InW61bDDtcqEgdTxjVbVWMs@clcn6p8nw459093bxquwk782qdf:5432/clcn6p8nv0014bxquelh15x15
+      - BRASS_APP_DATABASE_PASSWORD=TL5kp5lkrFPHa941NEiuP6C4
+      - DATABASE_URL=postgresql://cldolp6f4000e9rqxheng62wd:TL5kp5lkrFPHa941NEiuP6C4@cldolp6fg0018qx9rwpidc3h9:5432/cldolp6fc000g9rqx1avf0n6v
   webpacker:
     build: .
     command: ./bin/webpack-dev-server
