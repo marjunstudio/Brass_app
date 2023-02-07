@@ -6,7 +6,6 @@ class TopPagesController < ApplicationController
   before_action :medal_set
 
   def top
-    # @music_like_ranks = Like.includes(:user).sort {|a,b| b.user.size <=> a.user.size}
     @music_like_ranks = Music.find(Like.group(:music_id).order('count(music_id) DESC').limit(5).pluck(:music_id))
   end
 

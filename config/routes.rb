@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     collection do
       get 'category'
       get 'composer'
+      get 'word_search'
     end
   end
   resources :likes, only: %i[index create destroy]
