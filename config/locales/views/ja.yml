@@ -10,6 +10,7 @@ ja:
     user_index: 'ユーザー詳細'
     search: '検索'
     warning: 'ログインしてください'
+    not_authority: '権限がありません'
 
   users:
     index:
