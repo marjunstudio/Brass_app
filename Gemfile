@@ -48,6 +48,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
+gem 'cancancan'
 gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'sorcery'
@@ -56,4 +57,5 @@ gem 'seed-fu'
 gem 'google-api-client', '~> 0.53.0'
 gem 'pry-rails'
 gem 'ransack'
+gem 'rails_admin', '~> 3.0'
 gem 'cssbundling-rails'
