@@ -11,7 +11,8 @@ class User < ApplicationRecord
   validates :crypted_password, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :email, uniqueness: true, presence: true
-  validates :name, uniqueness: true, presence: true
+
+  enum role: { general: 0, admin: 1 }
 
   def unlikes_music(music)
     likes.destroy(music)
