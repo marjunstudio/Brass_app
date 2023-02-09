@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[update edit]
-  skip_before_action :require_login, only: %i[edit update show]
+  skip_before_action :require_login, only: %i[edit update]
   
   def edit;end
 
