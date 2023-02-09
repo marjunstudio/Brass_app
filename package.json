@@ -17,6 +17,7 @@
     "postcss": "8",
     "postcss-loader": "4",
     "rails-ujs": "^5.2.8-1",
+    "rails_admin": "3.1.1",
     "sass": "^1.57.1",
     "tailwindcss": "2",
     "turbolinks": "^5.2.0",
@@ -29,5 +30,8 @@
   },
   "devDependencies": {
     "webpack-dev-server": "^3"
+  },
+  "resolutions": {
+    "rails_admin/@fortawesome/fontawesome-free": "^5.15.0"
   }
 }
