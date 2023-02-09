@@ -5,13 +5,8 @@ class ApplicationController < ActionController::Base
   private
 
   def not_authenticated
-    # Make sure that we reference the route from the main app.
-    redirect_to main_app.login_path, warning: t('defaults.warning')
+    redirect_to login_path, warning: t('defaults.warning')
   end
-
-  # def not_authenticated
-  #   redirect_to login_path, warning: t('defaults.warning')
-  # end
 
   def set_category
     @category = Category.ransack(params[:q])

@@ -3,7 +3,8 @@ RailsAdmin.config do |config|
 
   config.authenticate_with do
     #sorceryのメソッド
-    redirect_to main_app.login_path unless current_user.admin?
+    require_login
+    redirect_to root_path, warning: t('defaults.not_authority') unless current_user.admin?
   end
   config.current_user_method(&:current_user)
 
@@ -18,24 +19,17 @@ RailsAdmin.config do |config|
   ## == CancanCan ==
   config.authorize_with :cancancan
 
-  ## == Pundit ==
-  # config.authorize_with :pundit
-
-  ## == PaperTrail ==
-  # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
-
-  ### More at https://github.com/railsadminteam/rails_admin/wiki/Base-configuration
-
-  ## == Gravatar integration ==
-  ## To disable Gravatar integration in Navigation Bar set to false
-  # config.show_gravatar = true
-
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    # root actions
+    dashboard do
+      statistics false
+    end
+    # collection actions 
+    index
     new
     export
     bulk_delete
+    # member actions
     show
     edit
     delete
