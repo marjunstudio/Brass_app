@@ -1,5 +1,5 @@
 class YoutubeSearchController < ApplicationController
-  skip_before_action :require_login, only: %i[index ind_videos]
+  skip_before_action :require_login, only: %i[index]
   require 'google/apis/youtube_v3'
   
   def index
