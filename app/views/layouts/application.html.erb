@@ -26,12 +26,11 @@
     gtag('config', 'UA-256795995-1');
   </script>
 
-  
   <body>
   <% if logged_in? %>
-    <%= render 'shared/login_header' %>
+    <%= render 'shared/header/login_header' %>
   <% else %>
-    <%= render 'shared/before_login_header' %>
+    <%= render 'shared/header/before_login_header' %>
   <% end %>
 
   <%= render 'shared/flash_message' %>
