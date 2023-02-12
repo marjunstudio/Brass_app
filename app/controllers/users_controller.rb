@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[index edit update]
   skip_before_action :require_login, only: [:new, :create]
 
   def new
@@ -19,9 +18,5 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :crypted_password)
-  end
-
-  def set_user
-    @user = User.find(current_user.id)
   end
 end
