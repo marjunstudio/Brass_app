@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root 'top_pages#top'
+  root 'top_pages#index'
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   resources :users, only: %i[new create]
   resource :profile, only: %i[show edit update]
-  resources :top_pages, only: %i[top] do
+  resources :top_pages, only: %i[index] do
     collection do
       get 'search'
     end
