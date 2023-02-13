@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
+  skip_before_action :require_login, only: %i[index guide]
   before_action :set_category
   before_action :set_composer
   before_action :set_music
