@@ -3,6 +3,7 @@ ja:
   defaults:
     signup: '新規登録'
     update: "更新"
+    guide: "使い方"
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
@@ -12,6 +13,9 @@ ja:
     warning: 'ログインしてください'
     not_authority: '権限がありません'
 
+  static_pages:
+    guide:
+      title: "ユーザーガイド"
   users:
     index:
       title: "ユーザープロフィール"
