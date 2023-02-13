@@ -4,6 +4,7 @@
       <%= link_to('Animatone', root_path, class: "inline-flex items-center text-black-800 text-3xl md:text-4xl font-bold gap-2.5") %>
     </div>
     <div class="hidden md:inline-block flex">
+      <%= link_to (t'defaults.guide'), guide_path, class: 'inline-block focus-visible:ring ring-indigo-300 text-gray-500 hover:text-sky-600 active:text-indigo-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-4 py-3' %>
       <%= link_to (t'defaults.like'), likes_path, class: 'inline-block focus-visible:ring ring-indigo-300 text-gray-500 hover:text-sky-600 active:text-indigo-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-4 py-3' %>
       <%= link_to (t'defaults.user_index'), profile_path, class: 'inline-block focus-visible:ring ring-indigo-300 text-gray-500 hover:text-sky-600 active:text-indigo-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-4 py-3' %>
       <%= link_to (t'defaults.logout'), logout_path, method: :delete, class: 'inline-block focus-visible:ring ring-indigo-300 text-gray-500 hover:text-sky-600 active:text-indigo-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-4 py-3' %>
@@ -23,10 +24,11 @@
         x-transition:leave-end="opacity-0 scale-90"
         class="absolute right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800"
     >
-        <%= link_to (t'defaults.like'), likes_path, class: 'block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white' %>
-        <%= link_to (t'defaults.user_index'), profile_path, class: 'block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white' %>
-        <hr class="border-gray-200 dark:border-gray-700 ">
-        <%= link_to (t'defaults.logout'), logout_path, method: :delete, class: 'block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white' %>
+      <%= link_to (t'defaults.guide'), guide_path, class: 'inline-block focus-visible:ring ring-indigo-300 text-gray-500 hover:text-sky-600 active:text-indigo-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-4 py-3' %>
+      <%= link_to (t'defaults.like'), likes_path, class: 'block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white' %>
+      <%= link_to (t'defaults.user_index'), profile_path, class: 'block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white' %>
+      <hr class="border-gray-200 dark:border-gray-700 ">
+      <%= link_to (t'defaults.logout'), logout_path, method: :delete, class: 'block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white' %>
     </div>
   </header>
 </div>
