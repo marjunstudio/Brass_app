@@ -1,11 +1,11 @@
 class TopPagesController < ApplicationController
-  skip_before_action :require_login, only: %i[top]
+  skip_before_action :require_login, only: %i[index]
   before_action :set_category
   before_action :set_composer
   before_action :set_music
   before_action :medal_set
 
-  def top
+  def index
     @music_like_ranks = Music.find(Like.group(:music_id).order('count(music_id) DESC').limit(5).pluck(:music_id))
   end
 
