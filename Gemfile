@@ -59,6 +59,7 @@ gem 'sorcery'
 
 gem 'seed-fu'
 gem 'google-api-client', '~> 0.53.0'
+gem "meta-tags"
 gem 'pry-rails'
 gem 'ransack'
 gem 'rails_admin', '~> 3.0'
