@@ -34,6 +34,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+public/sitemap.xml.gz
 
 master.key
 /app/assets/builds/*

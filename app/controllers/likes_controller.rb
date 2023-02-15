@@ -3,7 +3,7 @@ class LikesController < ApplicationController
 
   def index
     like_musics = current_user.likes.includes(:music)
-    @like_musics = Music.joins(:likes)  
+    @like_musics = Music.joins(:likes).distinct
   end
 
   def create

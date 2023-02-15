@@ -56,10 +56,11 @@ gem 'cancancan'
 gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'sorcery'
+gem 'sitemap_generator'
 
 gem 'seed-fu'
 gem 'google-api-client', '~> 0.53.0'
-gem "meta-tags"
+gem "meta-tags", :require => 'meta_tags'
 gem 'pry-rails'
 gem 'ransack'
 gem 'rails_admin', '~> 3.0'
