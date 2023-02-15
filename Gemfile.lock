@@ -300,6 +300,8 @@ GEM
       faraday (>= 0.17.5, < 3.a)
       jwt (>= 1.5, < 3.0)
       multi_json (~> 1.10)
+    sitemap_generator (6.3.0)
+      builder (~> 3.0)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -376,6 +378,7 @@ DEPENDENCIES
   rubocop-rails
   sass-rails (>= 6)
   seed-fu
+  sitemap_generator
   sorcery
   spring
   turbolinks (~> 5)

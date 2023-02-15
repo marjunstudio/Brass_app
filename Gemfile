@@ -56,6 +56,7 @@ gem 'cancancan'
 gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'sorcery'
+gem 'sitemap_generator'
 
 gem 'seed-fu'
 gem 'google-api-client', '~> 0.53.0'
