@@ -16,7 +16,11 @@ test:
 
 production:
   <<: *default
-  database: clcn6p8nv0014bxquelh15x15
-  username: clcn6p8nt0012bxqu33htaeh5
-  password: <%= ENV['BRASS_APP_DATABASE_PASSWORD'] %>
+  # magia用の設定
+  # database: clcn6p8nv0014bxquelh15x15
+  # username: clcn6p8nt0012bxqu33htaeh5
+  # password: <%= ENV['BRASS_APP_DATABASE_PASSWORD'] %>
+  # url: <%= ENV['DATABASE_URL'] %>
+
+  # Heroku用の設定
   url: <%= ENV['DATABASE_URL'] %>
