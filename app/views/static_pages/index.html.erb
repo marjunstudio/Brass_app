@@ -33,7 +33,7 @@
 	</h1>
   <div class="max-w-screen-sm sm:py-4 md:px-6 mx-auto lg:py-6">
     <div class="grid">
-      <% @music_like_ranks.each_with_index do |result, index| %>
+      <% @music_like_ranks.zip(@medal_rank) do |result, index| %>
 				<div class="rounded-md border bg-blue-100 border-5 border-gray-600 hover:text-slate-500 p-3 m-0.5">
 					<div class="flex">
 						<div class="flex items-center">
