@@ -10,7 +10,7 @@
 				<p class="font-bold">フリーワード検索</p>
 				<%= search_form_for @music, url: search_result_index_path do |f| %>
 					<div class="relative">
-						<%= f.search_field :title_or_description_cont, class:"block p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder:"楽曲名、概要など" %>
+						<%= f.search_field :title_or_description_or_composer_composer_or_categories_name_cont, class:"block p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder:"楽曲名、概要など" %>
 						<%= f.submit "\uF002", class:"text-white absolute h-full right-0 bottom-0 bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-r-lg text-sm px-4 py-2 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-blue-800" %>
 					</div>
 					<p class="font-bold mt-4">絞り込み条件</p>
