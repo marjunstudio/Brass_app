@@ -41,8 +41,10 @@
 						</div>
 						<div class="flex-auto">
 							<%= link_to result.title, youtube_search_index_path(result.title), class:"text-base font-medium" %>
-							<p class="flex text-sm">#<%= Category.find(result.music_categories[0].category_id).name %></p>
-							<p class="flex text-sm">#<%= result.description %></p>              
+							<p class="text-sm"><i class="fa-solid fa-tag mr-1"></i><%= Category.find(result.music_categories[0].category_id).name %></p>
+							<% if result.description? %> <%#概要がある場合表示する%>
+								<p class="text-sm"><i class="fa-solid fa-circle-info mr-1"></i><%= result.description %></p>              
+							<% end %>
 						</div>
 						<div class="flex flex-end items-center">
 							<i class="fa-solid fa-heart" style="color: deeppink;"></i>
