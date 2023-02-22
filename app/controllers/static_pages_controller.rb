@@ -8,16 +8,17 @@ class StaticPagesController < ApplicationController
   def index
     @music_like_ranks = Music.find(Like.group(:music_id).order('count(music_id) DESC').limit(5).pluck(:music_id))
 
-    @like_count = 0 #いいねの最大値
+    @like_count = 0 #いいねの最大値用変数
     @medal_rank = [] #順位の配列
+
     @music_like_ranks.each_with_index do |music, i|
-      if i == 0 #一位の配列処理
+      if i == 0 #1位の配列処理
         @medal_rank.push(i)
         @like_count = Like.where(music_id: music.id).count      
       elsif Like.where(music_id: music.id).count < @like_count #いいね数が最大数よりも少ない場合
         @medal_rank.push(@medal_rank.length)
-      else #ひとつ前の順位と同じ場合
-        @medal_rank.push(i-1)
+      else #ひとつ前の順位と同じいいね数の場合
+        @medal_rank.push(@medal_rank.min)
       end
     end
   end
