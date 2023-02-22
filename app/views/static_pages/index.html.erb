@@ -10,7 +10,7 @@
 				<p class="font-bold">フリーワード検索</p>
 				<%= search_form_for @music, url: search_result_index_path do |f| %>
 					<div class="relative">
-						<%= f.search_field :title_or_description_cont, class:"block p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder:"楽曲名、概要など" %>
+						<%= f.search_field :title_or_description_or_composer_composer_or_categories_name_cont, class:"block p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder:"楽曲名、概要など" %>
 						<%= f.submit "\uF002", class:"text-white absolute h-full right-0 bottom-0 bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-r-lg text-sm px-4 py-2 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-blue-800" %>
 					</div>
 					<p class="font-bold mt-4">絞り込み条件</p>
@@ -33,7 +33,7 @@
 	</h1>
   <div class="max-w-screen-sm sm:py-4 md:px-6 mx-auto lg:py-6">
     <div class="grid">
-      <% @music_like_ranks.each_with_index do |result, index| %>
+      <% @music_like_ranks.zip(@medal_rank) do |result, index| %>
 				<div class="rounded-md border bg-blue-100 border-5 border-gray-600 hover:text-slate-500 p-3 m-0.5">
 					<div class="flex">
 						<div class="flex items-center">
@@ -41,8 +41,10 @@
 						</div>
 						<div class="flex-auto">
 							<%= link_to result.title, youtube_search_index_path(result.title), class:"text-base font-medium" %>
-							<p class="flex text-sm">#<%= Category.find(result.music_categories[0].category_id).name %></p>
-							<p class="flex text-sm">#<%= result.description %></p>              
+							<p class="text-sm"><i class="fa-solid fa-tag mr-1"></i><%= Category.find(result.music_categories[0].category_id).name %></p>
+							<% if result.description? %> <%#概要がある場合表示する%>
+								<p class="text-sm"><i class="fa-solid fa-circle-info mr-1"></i><%= result.description %></p>              
+							<% end %>
 						</div>
 						<div class="flex flex-end items-center">
 							<i class="fa-solid fa-heart" style="color: deeppink;"></i>

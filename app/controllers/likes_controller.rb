@@ -2,8 +2,7 @@ class LikesController < ApplicationController
   before_action :require_login, only: %i[index create destroy]
 
   def index
-    like_musics = current_user.likes.includes(:music)
-    @like_musics = Music.joins(:likes).distinct
+    @like_musics = current_user.likes
   end
 
   def create
