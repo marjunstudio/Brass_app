@@ -9,19 +9,19 @@
       <div class="rounded-md border bg-blue-100 border-5 border-gray-600 hover:text-slate-500 p-3 m-0.5">
         <div class="flex flex justify-between">
           <div>
-            <%= link_to result.title, youtube_search_index_path(result.title), class:"sm:text-sm md:text-lg font-bold" %>
-            <p class="text-sm">#<%= Category.find(result.music_categories[0].category_id).name %></p>
-            <p class="text-sm">#<%= result.description %></p>
+            <%= link_to result.music.title, youtube_search_index_path(result.music.title), class:"sm:text-sm md:text-lg font-bold" %>
+            <p class="text-sm">#<%= Category.find(result.music.category_ids)[0].name %></p>
+            <p class="text-sm">#<%= result.music.description %></p>
           </div>
           <div class="flex items-center">
             <% if logged_in? %>
-              <% if current_user.liked_by?(music: result.id) %>
-                <%= render 'shared/unlike_bottun', music: result %> 
+              <% if current_user.liked_by?(music: result.music_id) %>
+                <%= render 'shared/unlike_bottun', music: result.music_id %>
               <% else %>
-                <%= render 'shared/like_bottun', music: result %>
+                <%= render 'shared/like_bottun', music: result.music_id %>
               <% end %>
             <% else %>
-              <%= render 'shared/like_bottun', music: result %>
+              <%= render 'shared/like_bottun', music: result.music_id %>
             <% end %>
           </div>
         </div>
