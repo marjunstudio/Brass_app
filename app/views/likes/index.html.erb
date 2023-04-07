@@ -11,7 +11,9 @@
             <div class="flex flex justify-between">
               <div>
                 <%= link_to result.music.title, youtube_search_index_path(result.music.title), class:"sm:text-sm md:text-lg font-bold" %>
-                <p class="text-sm"><i class="fa-solid fa-tag mr-1"></i><%= Category.find(result.music.category_ids)[0].name %></p>
+                <% if result.music_cateogories.exists? %> <%#カテゴリがある場合表示する%>
+                  <p class="text-sm"><i class="fa-solid fa-tag mr-1"></i><%= Category.find(result.music.category_ids)[0].name %></p>
+                <% end %>
                 <% if result.music.description? %> <%#概要がある場合表示する%>
                   <p class="text-sm"><i class="fa-solid fa-circle-info mr-1"></i><%= result.music.description %></p>
                 <% end %>
