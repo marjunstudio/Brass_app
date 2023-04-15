@@ -1,39 +1,5 @@
 <div class="text-3xl flex flex justify-center">
   <p class="mt-5">検索結果　<%= @musics.count %>曲</p>
 </div>
-<div class="max-w-screen-2xl py-5 md:px-6 mx-auto">
-  <div class="md:grid grid-cols-2">
-    <% if @musics.present? %>
-      <% @musics.each do |result| %>
-        <div class="rounded-md border bg-blue-100 border-5 border-gray-600 hover:text-slate-500 p-3 m-0.5">
-          <div class="flex flex justify-between">
-            <div>
-              <%= link_to result.title, youtube_search_index_path(result.title), class:"sm:text-sm md:text-lg font-bold" %>
-              <% if result.music_categories.exists? %> <%#カテゴリがある場合表示する%>
-                <p><i class="fa-solid fa-tag mr-1"></i><%= Category.find(result.music_categories[0].category_id).name %></p>
-              <% end %>
-              <% if result.description? %> <%#概要がある場合表示する%>
-                <p class="text-sm"><i class="fa-solid fa-circle-info mr-1"></i><%= result.description %></p>
-              <% end %>
-            </div>
-            <div class="flex items-center">
-              <% if logged_in? %>
-                <% if current_user.liked_by?(music: result.id) %>
-                  <%= render 'shared/unlike_bottun', music: result %> 
-                <% else %>
-                  <%= render 'shared/like_bottun', music: result %>
-                <% end %>
-              <% else %>
-                <%= render 'shared/like_bottun', music: result %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-      <div class="text-center">
-        <p class="text-md flex flex justify-center">該当する楽曲が見つかりませんでした。</p>
-      </div>
-    <% end %>
-  </div>
-</div>
+
+<%= render 'shared/music_view', musics: @musics %>
