@@ -6,15 +6,13 @@ class LikesController < ApplicationController
   end
 
   def create
-    likes = Like.new(user_id: current_user.id, music_id: params[:format])
-    likes.save
-    redirect_back fallback_location: search_result_index_path
+    @likes = Like.new(user_id: current_user.id, music_id: params[:format])
+    @likes.save
   end
 
   def destroy
-    like_music = current_user.likes.find_by(music_id: params[:id])
-    current_user.unlikes_music(like_music)
-    redirect_back fallback_location: search_result_index_path, success: t('.success')
+    @like_music = current_user.likes.find_by(music_id: params[:id])
+    current_user.unlikes_music(@like_music)
   end
 
   private
