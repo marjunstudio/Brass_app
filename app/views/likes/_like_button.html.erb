@@ -1,3 +1,9 @@
-<%= link_to likes_path(music), method: :post, remote: true do %>
-  <i id="favorite_button_<%= music %>", class="fa-regular fa-heart"></i>
+<% if logged_in? && current_user.liked_by?(music: music) %>
+  <%= link_to like_path(music), method: :delete, remote: true do %>
+    <i class="fa-solid fa-heart" style="color: deeppink;"></i>
+  <% end %>
+<% else %>
+  <%= link_to likes_path(music), method: :post, remote: true do %>
+    <i id="favorite_button_<%= music %>", class="fa-regular fa-heart"></i>
+  <% end %>
 <% end %>
