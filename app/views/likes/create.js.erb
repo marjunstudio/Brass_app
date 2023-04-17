@@ -1,4 +1,4 @@
 id = "<%= @likes.music_id %>";
 target = document.querySelector(`#favorite_button_${id}`);
-html = "<%= j(render 'likes/unlike_button',  music: @likes.music_id) %>";
+html = "<%= j(render 'likes/like_button',  music: @likes.music_id) %>";
 target.innerHTML = html;
