@@ -4,6 +4,6 @@
   <% end %>
 <% else %>
   <%= link_to likes_path(music), method: :post, remote: true do %>
-    <i id="favorite_button_<%= music %>", class="fa-regular fa-heart"></i>
+    <i class="fa-regular fa-heart"></i>
   <% end %>
 <% end %>

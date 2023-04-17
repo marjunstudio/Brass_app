@@ -6,8 +6,8 @@ class LikesController < ApplicationController
   end
 
   def create
-    @likes = Like.new(user_id: current_user.id, music_id: params[:format])
-    @likes.save
+    @like_music = Like.new(user_id: current_user.id, music_id: params[:format])
+    @like_music.save
   end
 
   def destroy
