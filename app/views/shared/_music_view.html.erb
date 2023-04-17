@@ -14,15 +14,17 @@
               <% end %>
             </div>
             <div class="flex items-center">
-              <% if logged_in? %>
-                <% if current_user.liked_by?(music: music.id) %>
-                  <%= render 'shared/unlike_bottun', music: music %> 
+              <div id="favorite_button_<%= music.id %>">
+                <% if logged_in? %>
+                  <% if current_user.liked_by?(music: music.id) %>
+                    <%= render '/likes/unlike_button', music: music %> 
+                  <% else %>
+                    <%= render '/likes/like_button', music: music %>
+                  <% end %>
                 <% else %>
-                  <%= render 'shared/like_bottun', music: music %>
+                  <%= render '/likes/like_button', music: music %>
                 <% end %>
-              <% else %>
-                <%= render 'shared/like_bottun', music: music %>
-              <% end %>
+              </div>
             </div>
           </div>
         </div>
