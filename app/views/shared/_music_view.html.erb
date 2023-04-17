@@ -14,15 +14,9 @@
               <% end %>
             </div>
             <div class="flex items-center">
-              <% if logged_in? %>
-                <% if current_user.liked_by?(music: music.id) %>
-                  <%= render 'shared/unlike_bottun', music: music %> 
-                <% else %>
-                  <%= render 'shared/like_bottun', music: music %>
-                <% end %>
-              <% else %>
-                <%= render 'shared/like_bottun', music: music %>
-              <% end %>
+              <div id="favorite_button_<%= music.id %>">
+                <%= render '/likes/like_button', music: music %>
+              </div>
             </div>
           </div>
         </div>
