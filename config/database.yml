@@ -23,4 +23,6 @@ production:
   # url: <%= ENV['DATABASE_URL'] %>
 
   # Heroku用の設定
-  url: <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5

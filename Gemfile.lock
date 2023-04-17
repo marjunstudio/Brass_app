@@ -366,7 +366,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.3)
   meta-tags
-  pg (~> 1.1)
+  pg
   pry-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
