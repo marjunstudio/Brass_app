@@ -1,7 +1,7 @@
 #applicationのディレクトリ名で置き換えてください
 ARG APP_NAME=Brass_app
 #使いたいrubyのimage名に置き換えてください
-ARG RUBY_IMAGE=ruby:2.6.4
+ARG RUBY_IMAGE=ruby:3.1.0
 #使いたいnodeのversionに置き換えてください(`15.14.0`ではなく`15`とか`16`とかのメジャーバージョン形式で書いてください)
 ARG NODE_VERSION='14'
 #インストールするbundlerのversionに置き換えてください
