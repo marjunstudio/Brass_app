@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.4'
+ruby '3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'
@@ -66,6 +66,6 @@ gem 'seed-fu'
 gem 'google-api-client', '~> 0.53.0'
 gem "meta-tags", :require => 'meta_tags'
 gem 'pry-rails'
-gem 'ransack'
+gem 'ransack', '~> 3.2', '>= 3.2.1'
 gem 'rails_admin', '~> 3.0'
 gem 'cssbundling-rails'
