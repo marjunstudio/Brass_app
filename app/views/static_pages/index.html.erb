@@ -4,23 +4,31 @@
 		<%# アプリの標語入れる %>
 	</div>
 	<div class="flex justify-center">
-		<div class="bg-cyan w-4/5 p-3 mb-14 rounded-lg border-4 border-gray-600">
+		<div class="bg-cyan md:w-4/5 mx-2 p-3 mb-14 rounded-lg border-4 border-gray-600">
 			<%# フリーワード検索エリア %>
 			<div class="max-w-2xl mx-auto">
 				<p class="font-bold">フリーワード検索</p>
 				<%= search_form_for @music, url: search_result_index_path do |f| %>
 					<div class="relative">
-						<%= f.search_field :title_or_description_or_composer_composer_or_categories_name_cont, class:"block p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder:"楽曲名、概要など" %>
-						<%= f.submit "\uF002", class:"text-white absolute h-full right-0 bottom-0 bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-r-lg text-sm px-4 py-2 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-blue-800" %>
+						<div data-controller="autocomplete" data-autocomplete-url-value="/static_pages/search" role="combobox">
+							<%= f.search_field :title_or_description_or_composer_composer_or_categories_name_cont,
+																	data: { autocomplete_target: 'input' },
+																	class:"block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 											 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
+																	placeholder:"楽曲名、概要など" %>
+							<%= f.hidden_field :title, data: { autocomplete_target: 'hidden' } %>
+							<ul class="list-group bg-white absolute w-full md:text-sm max-w-max" data-autocomplete-target="results"></ul>
+						</div>
+						<%= f.submit "\uF002", class:"text-white absolute h-full right-0 bottom-0 bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-r-lg px-4 py-2 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-blue-800" %>
 					</div>
+
 					<p class="font-bold mt-4">絞り込み条件</p>
 					<div class="md:flex flex-left">
 						<%# カテゴリ検索 %>
 						<%= f.collection_select(:music_categories_category_id_eq, @categories.all, :id, :name, 
-							{include_blank: "カテゴリ選択"}, {class:"p-3 rounded-lg mb-2 mr-2"}) %>
+							{include_blank: "カテゴリを選択"}, {class:"p-3 rounded-lg mb-2 mr-2 w-full"}) %>
 						<%# 作曲者検索 %>
 						<%= f.collection_select(:composer_id_eq, @composers.all, :id, :composer,
-							{include_blank: "作曲者選択"}, {class:"p-3 rounded-lg mb-2"}) %>
+							{include_blank: "作曲者を選択"}, {class:"p-3 rounded-lg mb-2 w-full"}) %>
 					</div>
 				<% end %>
 			</div>
