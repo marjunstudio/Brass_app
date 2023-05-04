@@ -42,13 +42,13 @@
   <div class="max-w-screen-sm sm:py-4 md:px-6 mx-auto lg:py-6">
     <div class="grid">
       <% @music_like_ranks.zip(@medal_rank) do |result, index| %>
-				<div class="rounded-md border bg-blue-100 border-5 border-gray-600 hover:text-slate-500 p-3 m-0.5">
+				<div class="rounded-md border bg-blue-100 border-5 border-gray-600 hover:bg-gray-200 p-3 m-0.5">
 					<div class="flex">
 						<div class="flex items-center">
 							<%= image_tag @medals[index],size: "45x45", class:"mr-2" %>
 						</div>
 						<div class="flex-auto">
-							<%= link_to result.title, youtube_search_index_path(result.title), class:"text-base font-medium" %>
+							<%= link_to result.title, youtube_search_index_path(result.title), class:"text-base font-medium hover:underline hover:text-blue-600" %>
 							<% if result.music_categories.exists? %> <%#カテゴリがある場合表示する%>
 								<p class="text-sm"><i class="fa-solid fa-tag mr-1"></i><%= Category.find(result.music_categories[0].category_id).name %></p>
 							<% end %>
