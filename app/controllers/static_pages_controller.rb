@@ -23,6 +23,13 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def search
+    @musics = Music.where("title like ?", "%#{params[:q]}%").limit(5)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def guide;end
 
   private

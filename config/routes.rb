@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
   
-  resources :static_pages, only: %i[index]
+  resources :static_pages do
+    get :search, on: :collection
+  end
 
   resources :users, only: %i[new create]
   resources :likes, only: %i[index create destroy]
