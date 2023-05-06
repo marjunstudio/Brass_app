@@ -8,7 +8,12 @@ class YoutubeSearchController < ApplicationController
 
   def find_videos(keyword)
     service = Google::Apis::YoutubeV3::YouTubeService.new
-    service.key = Rails.application.credentials.google[:api_key]
+
+    # magia用のAPIキー定義
+    # service.key = Rails.application.credentials.google[:api_key]
+    # Heroku用のAPIキーの定義
+    service.key = ENV['api_key']
+
     @youtube_data = []
 
     # 検索結果を取得
