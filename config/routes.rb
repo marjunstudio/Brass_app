@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
 
   resources :youtube_search, only: %i[top index]
-  resources :search_result, only: %i[index]
+  resources :search_result, only: %i[index show]
 end
