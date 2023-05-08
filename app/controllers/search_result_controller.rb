@@ -7,8 +7,8 @@ class SearchResultController < ApplicationController
   end
 
   def show
-    @music = Music.find(params[:id])
+    @music = Music.includes(comments: :user).find(params[:id])
     @comment = Comment.new
-    @comments = Comment.where(music_id: params[:id])
+    @comments = @music.comments.order(created_at: :desc)
   end
 end

@@ -1,5 +1,5 @@
-<div class="flex flex-col text-center ">
-  <div class="">
+<div class="flex flex-col mx-auto max-w-screen-lg">
+  <div class="text-center">
     <h1><%= @music.title %></h1>
       <% if @music.description? %>
         <p><i class="fa-solid fa-circle-info mr-1"></i><%= @music.description %></p>
@@ -7,32 +7,16 @@
       <p><i class="fa-solid fa-tag mr-1"></i><%= @music.categories[0].name %></p>
       <p><i class="fa-solid fa-user mr-1"></i><%= @music.composer.composer %></p>
   </div>
-  <div class="">
+  <div class="mx-auto max-w-screen-lg">
     <%= link_to 'Youtubeで検索', youtube_search_index_path(@music.title), class:'bg-blue-100 my-10' %>
   </div>
-
-  <%= form_with model: @comment, url: search_result_comments_path(@music.id) do |f| %>
-    <%= f.label :body %>
-    <%= f.text_area :body, class:"border" %>
-
-    <%= f.submit "コメントする" %>
+  <div class="mx-auto max-w-screen-lg">
+    <%= form_with model: @comment, url: search_result_comments_path(@music.id) do |f| %>
+      <%= f.label :body %>
+      <%= f.text_area :body, class:"border" %>
+      <%= f.submit "コメントする" %>
   <% end %>
+  </div>
 
-  <%# コメント一覧表示 %>
-  <%= @comments.each do |comment| %>
-    <ul role="list" class="divide-y divide-gray-100">
-      <li class="flex justify-between w-4/5">
-        <div class="flex">
-          <div class="min-w-0 flex-auto">
-            <p class="text-sm font-semibold leading-6 text-gray-900">Leslie Alexander</p>
-            <p class="mt-1 truncate text-xs leading-5 text-gray-500">leslie.alexander@example.com</p>
-          </div>
-        </div>
-        <div class="hidden sm:flex sm:flex-col sm:items-end">
-          <p class="text-sm leading-6 text-gray-900">Co-Founder / CEO</p>
-          <p class="mt-1 text-xs leading-5 text-gray-500">Last seen <time datetime="2023-01-23T13:23Z">3h ago</time></p>
-        </div>
-      </li>
-    </ul>
-  <% end %>
+  <%= render 'comments/comment', { comments: @comments } %>
 </div>

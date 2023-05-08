@@ -51,3 +51,7 @@ ja:
       title: 'お気に入り楽曲'
     destroy:
       success: 'お気に入りを解除しました'
+  comments:
+    create:
+      success: 'コメントを投稿しました'
+      warning: 'コメントの投稿に失敗しました'

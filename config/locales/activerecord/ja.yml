@@ -10,6 +10,8 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認用）
         crypted_password: パスワード（確認用）
+      comment:  
+        body: 本文
   errors:
     format: "%{attribute}%{message}"
     messages:
