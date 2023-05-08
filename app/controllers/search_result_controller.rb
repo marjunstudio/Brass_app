@@ -8,5 +8,7 @@ class SearchResultController < ApplicationController
 
   def show
     @music = Music.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.where(music_id: params[:id])
   end
 end
