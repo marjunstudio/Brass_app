@@ -18,6 +18,6 @@ Rails.application.routes.draw do
 
   resources :youtube_search, only: %i[top index]
   resources :search_result, only: %i[index show] do
-    resources :comments, only: %i[create]
+    resources :comments, only: %i[create update destroy]
   end
 end

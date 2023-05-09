@@ -2,12 +2,15 @@
   <% if comments.present? %>
     <% comments.each do |comment| %>
       <ul role="list" class="py-2 divide-y divide-gray-100">
-        <li class="flex justify-between border-t m-auto mx-4">
-          <div class="flex">
-            <div class="min-w-0 flex-auto">
-              <p class="text-sm font-semibold leading-6 text-gray-900"><%= comment.user.name %></p>
-              <p class="break-words mt-1 truncate text-xs leading-5 text-gray-500"><%= simple_format(comment.body) %></p>
-            </div>
+        <li class="flex justify-between border-t m-auto mx-4 ">
+          <div class="p-2">
+            <p class="font-extrabold text-md"><%= comment.user.name %></p>
+            <p class="font-nomal"><%= simple_format(comment.body) %></p>
+          </div>
+          <div class="flex items-end mr-1">
+            <%= link_to search_result_comment_path(comment), method: :delete, data: {confirm: (t'defaults.confirm_destroy') } do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
           </div>
         </li>
       </ul>
