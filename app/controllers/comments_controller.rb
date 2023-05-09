@@ -10,6 +10,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = current_user.comments.find(params[:search_result_id])
+    @comment.destroy!
+    redirect_to search_result_path(params[:id]), success: t('.success')
+  end
+
   private
   
   def comment_params

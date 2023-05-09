@@ -12,6 +12,7 @@ ja:
     search: '検索'
     warning: 'ログインしてください'
     comment: '投稿'
+    confirm_destroy: 'コメントを削除しますか？'
     not_authority: '権限がありません'
 
   static_pages:
@@ -57,8 +58,11 @@ ja:
   search_results:
     show:
       search_button: '楽曲をYoutubeで検索'
+      noting_comment: 'コメントが投稿されていません'
 
   comments:
     create:
       success: 'コメントを投稿しました'
       warning: 'コメントの投稿に失敗しました'
+    destroy:
+      success: 'コメントを削除しました'

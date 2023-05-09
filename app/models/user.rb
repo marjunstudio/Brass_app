@@ -21,4 +21,8 @@ class User < ApplicationRecord
   def liked_by?(music)
     likes.exists?(music)
   end
+    
+  def own?(object)
+    id == object.user_id
+  end
 end
