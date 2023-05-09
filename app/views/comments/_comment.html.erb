@@ -7,11 +7,13 @@
             <p class="font-extrabold text-md"><%= comment.user.name %></p>
             <p class="font-nomal"><%= simple_format(comment.body) %></p>
           </div>
-          <div class="flex items-end mr-1">
-            <%= link_to search_result_comment_path(comment), method: :delete, data: {confirm: (t'defaults.confirm_destroy') } do %>
-              <i class="fa-solid fa-trash"></i>
-            <% end %>
-          </div>
+          <% if current_user.own?(comment) %>
+            <div class="flex items-end mr-1">
+              <%= link_to search_result_comment_path(comment), method: :delete, data: {confirm: (t'defaults.confirm_destroy') } do %>
+                <i class="fa-solid fa-trash"></i>
+              <% end %>
+            </div>
+          <% end %>
         </li>
       </ul>
     <% end %>
