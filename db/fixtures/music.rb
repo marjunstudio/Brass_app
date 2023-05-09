@@ -1,11 +1,11 @@
 require 'csv'
 
 csv = CSV.read('db/fixtures/csv/music.csv', headers: true)
-csv.each do |music|
+csv.each.with_index(1) do |music, index|
   Music.seed do |s|
-    s.id = music[0]
-    s.title = music[1]
-    s.composer_id = music[2]
-    s.description = music[3]
+    s.id = index
+    s.title = music[0]
+    s.composer_id = music[1]
+    s.description = music[2]
   end
 end

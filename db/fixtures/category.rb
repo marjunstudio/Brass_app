@@ -1,9 +1,9 @@
 require 'csv'
 
 csv = CSV.read('db/fixtures/csv/category.csv', headers: true)
-  csv.each do |category|
+  csv.each.with_index(1) do |category, index|
     Category.seed do |s|
-      s.id = category[0]
-      s.name = category[1]
+      s.id = index
+      s.name = category[0]
   end
 end
