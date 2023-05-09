@@ -1,14 +1,20 @@
-<div class="mt-10 mx-auto w-5/6">
-  <% comments.each do |comment| %>
-    <ul role="list" class="py-2 divide-y divide-gray-100">
-      <li class="flex justify-between border-t m-auto mx-4">
-        <div class="flex">
-          <div class="min-w-0 flex-auto">
-            <p class="text-sm font-semibold leading-6 text-gray-900"><%= comment.user.name %></p>
-            <p class="break-words mt-1 truncate text-xs leading-5 text-gray-500"><%= simple_format(comment.body) %></p>
+<div class="mt-10 mx-auto w-11/12">
+  <% if comments.present? %>
+    <% comments.each do |comment| %>
+      <ul role="list" class="py-2 divide-y divide-gray-100">
+        <li class="flex justify-between border-t m-auto mx-4">
+          <div class="flex">
+            <div class="min-w-0 flex-auto">
+              <p class="text-sm font-semibold leading-6 text-gray-900"><%= comment.user.name %></p>
+              <p class="break-words mt-1 truncate text-xs leading-5 text-gray-500"><%= simple_format(comment.body) %></p>
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    <% end %>
+  <% else %>
+    <div class="border-t m-auto mx-4 text-center">
+    <p class="pt-3"><%= t('search_results.show.noting_comment') %></p>
+    </div>
   <% end %>
 </div>

@@ -57,6 +57,7 @@ ja:
   search_results:
     show:
       search_button: '楽曲をYoutubeで検索'
+      noting_comment: 'コメントが投稿されていません'
 
   comments:
     create:
