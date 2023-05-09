@@ -11,6 +11,7 @@ ja:
     user_index: 'ユーザー詳細'
     search: '検索'
     warning: 'ログインしてください'
+    comment: '投稿'
     not_authority: '権限がありません'
 
   static_pages:
@@ -36,7 +37,7 @@ ja:
     update:
       success: 'ユーザー情報を更新しました'
       warning: 'ユーザー情報の更新に失敗しました'
-  
+
   user_sessions:
     new:
       title: 'ログイン'
@@ -46,8 +47,18 @@ ja:
       warning: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+
   likes:
     index:
       title: 'お気に入り楽曲'
     destroy:
       success: 'お気に入りを解除しました'
+
+  search_results:
+    show:
+      search_button: '楽曲をYoutubeで検索'
+
+  comments:
+    create:
+      success: 'コメントを投稿しました'
+      warning: 'コメントの投稿に失敗しました'

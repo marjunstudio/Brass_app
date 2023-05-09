@@ -5,4 +5,10 @@ class SearchResultController < ApplicationController
     @music = Music.ransack(params[:q])
     @musics = @music.result
   end
+
+  def show
+    @music = Music.includes(comments: :user).find(params[:id])
+    @comment = Comment.new
+    @comments = @music.comments.order(created_at: :desc)
+  end
 end
