@@ -1,10 +1,13 @@
 user = User.new(
   id: 1,
   name: "かんりにん",
-  email: "admin@kanri.com",
-  password: "admin",
-  password_confirmation: "admin",
+  email: "admin@gmail.com",
+  password: "adminPass01",
+  password_confirmation: "adminPass01",
   role: 1
 )
 
-user.save!
+existing_user = User.find_by(email: user.email)
+if existing_user.nil?
+  user.save
+end
